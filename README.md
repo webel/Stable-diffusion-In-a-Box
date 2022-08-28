@@ -17,10 +17,11 @@ The script in this repo is meant to setup a suitable enviroment for [Stable Diff
 
 (This is what I do on a paperspace instance of Ubuntu)
 
-1. `git clone [this-library]`
-2. `bash ./prepare.sh`, (handle potential errors, I haven't had any thus far)
-3. `bash install-sd.sh`
-4. Grab your weights, either with wget or by copying from your local machine with scp
+1. `git clone https://github.com/webel/Stable-diffusion-In-a-Box.git`
+2. `cd Stable-diffusion-In-a-Box`
+3. `bash prepare.sh`, (handle potential errors, I haven't had any thus far)
+4. `bash install-sd.sh`
+5. Grab your weights, either with wget or by copying from your local machine with scp
 
 ```sh
 # Make sure to change the location of where your weights are
@@ -46,7 +47,7 @@ The above script will spit out an endpoint, `localhost:7860`.
 We'll use **SSH tunneling** to forward our local port to the server port;
 
 ```sh
-ssh -NL 7860:172.83.13.45:7860 paperspace@172.83.13.45
+ssh -NL 7860:[server-ip]:7860 [user]@[server-ip]
 ```
 
 You can now go to `localhost:7860` in your browser and go wild 🎉.
