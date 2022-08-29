@@ -1,10 +1,10 @@
 # Stable diffusion in a Box
 
-> **Note: these instructions are hastily put together and suitable for someone comfortable with command line and ssh**
+> **Note: these instructions are hastily put together and suitable for someone comfortable with command line.**
 
 The script in this repo is meant to setup a suitable enviroment for [Stable Diffusion](https://github.com/CompVis/stable-diffusion) with [UI](https://github.com/hlky/stable-diffusion-webui) on an ubuntu gpu instance such as those provided by [Paperspace](https://paperspace.com) so that you can forward a local port and play with stable diffusion in your browser.
 
-Here's a [referral link for Paperspace](https://console.paperspace.com/signup?R=WF9770R), it should give you 10$ off if you don't already have an account.
+Here's a [referral link for Paperspace](https://console.paperspace.com/signup?R=WF9770R), it should give you 10\$ off if you don't already have an account.
 
 ## Includes
 
@@ -59,3 +59,88 @@ Use scp to copy the output directory back to your local device,
 ```sh
 scp -qpr [user]@[server-ip]:stable-diffusion/outputs ./
 ```
+
+## TODO
+
+I want to create a single command, say `artfart.sh` that
+
+- [ ] starts the machine
+- [ ] runs the webui on startup
+- [ ] forwards the local port
+- [ ] stops the machine on script exit
+
+### Keep it cheap (Paperspace)
+
+Programmatically starting and stopping:
+
+```sh
+# paperspace-cli
+paperspace machines start \
+  --apiKey "" \
+  --machineId ""
+
+paperspace machines stop \
+  --apiKey "" \
+  --machineId ""
+
+paperspace machines waitfor \
+  --apiKey "" \
+  --machineId "" \
+  --state "ready"
+
+# node
+paperspace.machines.start(
+  {
+    machineId: "",
+  },
+  function (err, res) {
+    // handle error or result
+  }
+);
+
+paperspace.machines.stop(
+  {
+    machineId: "",
+  },
+  function (err, res) {
+    // handle error or result
+  }
+);
+
+paperspace.machines.waitfor(
+  {
+    machineId: "",
+    state: "ready",
+  },
+  function (err, res) {
+    // handle error or result
+  }
+);
+```
+
+### On startup
+
+- Script on startup, `.startup.sh`
+
+```sh
+#!/bin/bash
+cd stable-diffusion . ~/miniconda3/etc profile.d/conda.sh
+conda activate ldm
+# python scripts/relauncher.py
+```
+
+- Add to end of `.profile`: 
+
+```sh
+# enable ldm and move straight into stable-diffusion
+if [ -d "$HOME/stable-diffusion" ] ; then
+    . "$HOME/.startup.sh"
+fi
+```
+
+<!-- - Add script to reboot
+```sh
+crontab -e
+@reboot . $HOME/.startup.sh
+```
+-->
