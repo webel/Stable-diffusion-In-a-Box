@@ -22,6 +22,7 @@ Here's a [referral link for Paperspace](https://console.paperspace.com/signup?R=
 1. `git clone https://github.com/webel/Stable-diffusion-In-a-Box.git`
 2. `cd Stable-diffusion-In-a-Box`
 3. `bash prepare.sh`, (handle potential errors, I haven't had any thus far)
+**NOTE** the host might disconnect at this, ssh in again and run this command again.
 4. `bash install-sd.sh`
 5. Grab your weights, either with wget or by copying from your local machine with scp
 
@@ -124,7 +125,8 @@ paperspace.machines.waitfor(
 
 ```sh
 #!/bin/bash
-cd stable-diffusion . ~/miniconda3/etc profile.d/conda.sh
+cd stable-diffusion
+. ~/miniconda3/etc profile.d/conda.sh
 conda activate ldm
 # python scripts/relauncher.py
 ```
