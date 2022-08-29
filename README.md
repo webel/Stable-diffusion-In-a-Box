@@ -2,7 +2,9 @@
 
 > **Note: these instructions are hastily put together and suitable for someone comfortable with command line and ssh**
 
-The script in this repo is meant to setup a suitable enviroment for [Stable Diffusion](https://github.com/CompVis/stable-diffusion) with [UI](https://github.com/hlky/stable-diffusion-webui) on an ubuntu instance such as those provided by [Paperspace](https://paperspace.com) so that you can forward a local port and play with stable diffusion in your browser.
+The script in this repo is meant to setup a suitable enviroment for [Stable Diffusion](https://github.com/CompVis/stable-diffusion) with [UI](https://github.com/hlky/stable-diffusion-webui) on an ubuntu gpu instance such as those provided by [Paperspace](https://paperspace.com) so that you can forward a local port and play with stable diffusion in your browser.
+
+Here's a [referral link for Paperspace](https://console.paperspace.com/signup?R=WF9770R), it should give you 10$ off if you don't already have an account.
 
 ## Includes
 
