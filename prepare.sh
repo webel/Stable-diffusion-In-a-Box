@@ -53,9 +53,10 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
 bash Miniconda3-py39_4.9.2-Linux-x86_64.sh -b -p $HOME/src/miniconda
 export PATH=${PATH}:$HOME/src/miniconda/bin
 conda create -y -n rapids-21.08 -c rapidsai -c nvidia -c conda-forge rapids-blazing=21.08 python=3.8 cudatoolkit=11.3
-rm Miniconda3-py38_4.10.3-Linux-x86_64.sh
+rm Miniconda3-py39_4.9.2-Linux-x86_64.sh
 
 # Update PATH
 export PATH=${PATH}:/home/paperspace/.local/bin
 echo "export PATH=${PATH}:/home/paperspace/.local/bin" >> ~/.bashrc
 echo "export PATH=${PATH}:/home/paperspace/src/miniconda/bin" >> ~/.bashrc
+source ~/.bashrc
