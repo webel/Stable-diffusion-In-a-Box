@@ -9,7 +9,7 @@ sudo apt-get -y install \
   apt-transport-https \
   ca-certificates
 
-if ! [ -f /etc/modprobe.d/nouveau-blacklist.conf ]; then
+if ! [ -f /etc/modprobe.d/blacklist-nouveau.conf ]; then
   echo "nouveau is not blacklisted, doing so and rebooting"
 
   # Blacklist nouveau and rebuild kernel initramfs
