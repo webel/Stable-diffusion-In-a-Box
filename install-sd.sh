@@ -24,3 +24,4 @@ python -m pip install opencv-python
 python -m pip install gradio
 python -m pip install pynvml
 python -m pip install -e git+https://github.com/hlky/k-diffusion-sd#egg=k_diffusion
+

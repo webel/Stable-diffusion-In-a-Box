@@ -24,7 +24,8 @@ Here's a [referral link for Paperspace](https://console.paperspace.com/signup?R=
 3. Run the prepare script; `bash prepare.sh`, **NOTE** the host will likely disconnect at this point due to needing to reboot, ssh in again and **run this command again**.
 4. Accept any NVIDIA prompts by clicking enter.
 5. Run the script that git clones stable diffusion and the ui, as well as prepares them: `bash install-sd.sh`.
-6. Grab your weights, either with wget or by copying from your local machine with scp
+6. (**Optional**) `pip install gdown` for a google drive downloader.
+7. Grab your weights, either with wget, or by copying from your local machine with scp, or (fastest I've found so far) `gdown [google-drive-link]`
 
 ```sh
 # Make sure to change the location of where your weights are
